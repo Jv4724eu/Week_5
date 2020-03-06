@@ -10,13 +10,21 @@ let bridges = [
     {name:'Tacoma Narrows Bridge', city_state:'Tacoma and Kitsap, WA', meters:'853.44', location:'[47.2690, -122.5517]' }
 ];
 
+let bridgeNames = [];
+let bridgeSpans = [];
+
+bridges.forEach(function (element) {
+    bridgeNames.push(element.name);
+    bridgeSpans.push(element.meters);
+})
+
 chart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Verrazano-Narrows Bridge', 'Golden Gate Bridge', 'Mackinac Bridge','George Washington Bridge','Tacoma Narrows Bridge'],
+        labels: bridgeNames,
         datasets: [{
             label: 'Span of Bridge',
-            data: [1298.4, 1280.2, 1158.0, 1067.0, 853.44],
+            data: bridgeSpans,
             backgroundColor: ['red', 'blue', 'yellow', 'green', 'orange']
         }]
     },
